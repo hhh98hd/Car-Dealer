@@ -116,11 +116,21 @@ img{
 }
 
 .img_icon {
-  align-self: center;
+    align-self: center;
     width:40px;
     background-color:#0C9;
     color:#FFF;
     border-radius:50px;
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
+}
+
+.contact_icon {
+    width: 44px;
+    height: 44px;
+    background-color: darkturquoise;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 10px;
 }
