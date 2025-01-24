@@ -70,13 +70,16 @@ def registration(request):
         data = {"userName":username,"status":"Authenticated"}
         return JsonResponse(data)
         
-def get_cars(request):
-    manufacturer_num = CarMake.objects.filter().count()
+def get_cars(request):    
+    manifacturer_num = CarMake.objects.filter().count()
     
-    if 0 == manufacturer_num:
+    if 0 == manifacturer_num:
         initiate()
-        
-    car_models = CarModel.objects.select_related('car_make')
-    print(car_models)
     
+    car_models = CarModel.objects.select_related('car_make')
+    
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
         
+    return JsonResponse({"CarModels": cars})
